@@ -30,6 +30,7 @@ From `c:\darelwasl\hd-innovations-website`:
 Notes:
 - Use a fine-grained PAT with the minimum required permissions (repo + pages).
 - The script does not write the token to disk or to the git remote URL.
+- Re-running the script updates the existing repo by default. To force a new repo name, add `-CreateNewIfExists`.
 
 ## Files
 

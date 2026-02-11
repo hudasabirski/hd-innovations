@@ -9,7 +9,12 @@ param(
   [string]$SitePath = "",
 
   [Parameter(Mandatory = $false)]
-  [string]$Branch = "main"
+  [string]$Branch = "main",
+
+  # By default this script updates the given repo if it already exists.
+  # Use this switch only if you want the script to auto-pick a different repo name.
+  [Parameter(Mandatory = $false)]
+  [switch]$CreateNewIfExists
 )
 
 $ErrorActionPreference = "Stop"
@@ -83,9 +88,13 @@ if ($me.login -ne $Owner) {
   throw "Token authenticates as '$($me.login)' but -Owner is '$Owner'."
 }
 
-$Repo = Ensure-RepoNameAvailable -Owner $Owner -Repo $Repo -Headers $headers
+$repoExists = Repo-Exists -Owner $Owner -Repo $Repo -Headers $headers
+if ($repoExists -and $CreateNewIfExists) {
+  $Repo = Ensure-RepoNameAvailable -Owner $Owner -Repo $Repo -Headers $headers
+  $repoExists = Repo-Exists -Owner $Owner -Repo $Repo -Headers $headers
+}
 
-if (-not (Repo-Exists -Owner $Owner -Repo $Repo -Headers $headers)) {
+if (-not $repoExists) {
   $repoBody = @{
     name = $Repo
     description = "HD Innovations - premium website"

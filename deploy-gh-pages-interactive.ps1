@@ -6,7 +6,10 @@ param(
   [string]$Repo = "hd-innovations",
 
   [Parameter(Mandatory = $false)]
-  [switch]$Open
+  [switch]$Open,
+
+  [Parameter(Mandatory = $false)]
+  [switch]$CreateNewIfExists
 )
 
 $ErrorActionPreference = "Stop"
@@ -36,7 +39,7 @@ if (-not $token) {
 # Pass token via env var (not written to disk).
 $env:GITHUB_TOKEN = $token
 
-$out = & (Join-Path $PSScriptRoot "deploy-gh-pages.ps1") -Owner $Owner -Repo $Repo
+$out = & (Join-Path $PSScriptRoot "deploy-gh-pages.ps1") -Owner $Owner -Repo $Repo -CreateNewIfExists:$CreateNewIfExists
 
 if ($Open) {
   $pagesUrl = $null

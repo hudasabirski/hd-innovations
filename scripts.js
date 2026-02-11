@@ -7,14 +7,16 @@ function initYear() {
 }
 
 function initMobileNav() {
-  const toggle = q(".nav-toggle");
+  const toggle = q("[data-nav-toggle]");
   const nav = q("#nav");
   if (!toggle || !nav) return;
 
   const setOpen = (open) => {
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    nav.classList.toggle("is-open", open);
+    nav.classList.toggle("hidden", !open);
   };
+
+  setOpen(false);
 
   toggle.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") !== "true";
@@ -30,41 +32,6 @@ function initMobileNav() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setOpen(false);
   });
-}
-
-function initStickyHeader() {
-  const header = q(".site-header");
-  if (!header) return;
-
-  const onScroll = () => {
-    header.dataset.stuck = window.scrollY > 8 ? "true" : "false";
-  };
-
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-}
-
-function initReveal() {
-  const nodes = qa("[data-reveal]");
-  if (!nodes.length) return;
-
-  if (!("IntersectionObserver" in window)) {
-    nodes.forEach((n) => n.classList.add("is-visible"));
-    return;
-  }
-
-  const obs = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.classList.add("is-visible");
-        obs.unobserve(entry.target);
-      }
-    },
-    { threshold: 0.12 }
-  );
-
-  nodes.forEach((n) => obs.observe(n));
 }
 
 function initMailtoForm() {
@@ -92,7 +59,4 @@ function initMailtoForm() {
 
 initYear();
 initMobileNav();
-initStickyHeader();
-initReveal();
 initMailtoForm();
-
