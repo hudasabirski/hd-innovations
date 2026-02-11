@@ -69,6 +69,11 @@ body {
   transition: background 160ms ease, color 160ms ease;
 }
 
+.nav-link[aria-current="page"] {
+  color: rgb(6, 95, 70);
+  background: rgb(236, 253, 245);
+}
+
 .nav-link:hover,
 .nav-link:focus-visible {
   background: rgb(241, 245, 249);
@@ -138,6 +143,11 @@ body {
   border-radius: 12px;
   font-weight: 700;
   color: rgb(51, 65, 85);
+}
+
+.mobile-link[aria-current="page"] {
+  background: rgb(236, 253, 245);
+  color: rgb(6, 95, 70);
 }
 
 .mobile-link:hover {
@@ -275,4 +285,3 @@ body {
     transition: none;
   }
 }
-

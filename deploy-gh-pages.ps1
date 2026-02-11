@@ -114,6 +114,12 @@ $deployDir = Join-Path $env:TEMP ("hd-innovations-pages-" + $Repo + "-" + [Guid]
 New-Item -ItemType Directory -Force -Path $deployDir | Out-Null
 Copy-Item -Path (Join-Path $siteRoot "*") -Destination $deployDir -Recurse -Force
 
+# Don't deploy legacy/local backups.
+$legacyIndex = Join-Path $deployDir "index.legacy.html"
+$legacyStyles = Join-Path $deployDir "styles.legacy.css"
+if (Test-Path $legacyIndex) { Remove-Item -Force $legacyIndex }
+if (Test-Path $legacyStyles) { Remove-Item -Force $legacyStyles }
+
 Push-Location $deployDir
 try {
   git init | Out-Null

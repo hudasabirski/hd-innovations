@@ -6,6 +6,26 @@ function initYear() {
   for (const node of qa("[data-year]")) node.textContent = String(year);
 }
 
+function normalizePath(pathname) {
+  if (!pathname) return "/";
+  let p = pathname;
+  p = p.split("?")[0].split("#")[0];
+  if (p.endsWith("/index.html")) p = p.slice(0, -"/index.html".length) + "/";
+  return p;
+}
+
+function initActiveNav() {
+  const current = normalizePath(window.location.pathname);
+  const links = qa("a.nav-link, a.mobile-link");
+  for (const link of links) {
+    const href = link.getAttribute("href") || "";
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("http")) continue;
+    const url = new URL(href, window.location.href);
+    const target = normalizePath(url.pathname);
+    if (target === current) link.setAttribute("aria-current", "page");
+  }
+}
+
 function initMobileNav() {
   const toggle = q("[data-nav-toggle]");
   const nav = q("#nav");
@@ -58,5 +78,6 @@ function initMailtoForm() {
 }
 
 initYear();
+initActiveNav();
 initMobileNav();
 initMailtoForm();

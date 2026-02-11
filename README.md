@@ -32,6 +32,22 @@ Notes:
 - The script does not write the token to disk or to the git remote URL.
 - Re-running the script updates the existing repo by default. To force a new repo name, add `-CreateNewIfExists`.
 
+## Recommended: set up SSH once (so I can push for you)
+
+To avoid tokens and browser logins every time, set up SSH authentication once:
+
+```powershell
+.\setup-github-ssh.ps1 -Owner hudasabirski
+```
+
+Then add the copied public key to your GitHub account (it prints the URL).
+
+After that, publishing updates is one command:
+
+```powershell
+.\publish.ps1 -Owner hudasabirski -Repo hd-innovations
+```
+
 ## Files
 
 - `hd-innovations-website/index.html`
