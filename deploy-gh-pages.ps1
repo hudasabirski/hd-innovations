@@ -111,29 +111,63 @@ if (-not (Test-Path $siteRoot)) {
 }
 
 $deployDir = Join-Path $env:TEMP ("hd-innovations-pages-" + $Repo + "-" + [Guid]::NewGuid().ToString("N").Substring(0, 8))
-New-Item -ItemType Directory -Force -Path $deployDir | Out-Null
-Copy-Item -Path (Join-Path $siteRoot "*") -Destination $deployDir -Recurse -Force
 
-# Don't deploy legacy/local backups.
-$legacyIndex = Join-Path $deployDir "index.legacy.html"
-$legacyStyles = Join-Path $deployDir "styles.legacy.css"
-if (Test-Path $legacyIndex) { Remove-Item -Force $legacyIndex }
-if (Test-Path $legacyStyles) { Remove-Item -Force $legacyStyles }
+$basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("x-access-token:" + $token)))
+$gitAuth = ("http.https://github.com/.extraheader=AUTHORIZATION: basic " + $basic)
 
-Push-Location $deployDir
-try {
-  git init | Out-Null
-  git checkout -b $Branch | Out-Null
-  git config user.name $Owner
-  git config user.email ($Owner + "@users.noreply.github.com")
-  git add -A
-  git commit -m "Initial HD Innovations site" | Out-Null
-  git remote add origin ("https://github.com/" + $Owner + "/" + $Repo + ".git")
+function Copy-SiteToDir([string]$From, [string]$To) {
+  Copy-Item -Path (Join-Path $From "*") -Destination $To -Recurse -Force
 
-  $basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("x-access-token:" + $token)))
-  git -c ("http.https://github.com/.extraheader=AUTHORIZATION: basic " + $basic) push -u origin $Branch | Out-Null
-} finally {
-  Pop-Location
+  # Don't deploy legacy/local backups.
+  $legacyIndex = Join-Path $To "index.legacy.html"
+  $legacyStyles = Join-Path $To "styles.legacy.css"
+  if (Test-Path $legacyIndex) { Remove-Item -Force $legacyIndex }
+  if (Test-Path $legacyStyles) { Remove-Item -Force $legacyStyles }
+}
+
+if ($repoExists) {
+  # Update existing repo without rewriting history (avoids "fetch first" rejection).
+  git -c $gitAuth clone --depth 1 ("https://github.com/" + $Owner + "/" + $Repo + ".git") $deployDir | Out-Null
+
+  Push-Location $deployDir
+  try {
+    git checkout $Branch | Out-Null
+
+    # Clear working tree (but keep .git).
+    Get-ChildItem -Force | Where-Object { $_.Name -ne ".git" } | Remove-Item -Recurse -Force
+
+    Copy-SiteToDir -From $siteRoot -To $deployDir
+
+    git config user.name $Owner
+    git config user.email ($Owner + "@users.noreply.github.com")
+    git add -A
+
+    $status = git status --porcelain
+    if ($status) {
+      git commit -m "Update site" | Out-Null
+      git -c $gitAuth push origin $Branch | Out-Null
+    }
+  } finally {
+    Pop-Location
+  }
+} else {
+  # First publish to a newly created repo.
+  New-Item -ItemType Directory -Force -Path $deployDir | Out-Null
+  Copy-SiteToDir -From $siteRoot -To $deployDir
+
+  Push-Location $deployDir
+  try {
+    git init | Out-Null
+    git checkout -b $Branch | Out-Null
+    git config user.name $Owner
+    git config user.email ($Owner + "@users.noreply.github.com")
+    git add -A
+    git commit -m "Initial site" | Out-Null
+    git remote add origin ("https://github.com/" + $Owner + "/" + $Repo + ".git")
+    git -c $gitAuth push -u origin $Branch | Out-Null
+  } finally {
+    Pop-Location
+  }
 }
 
 $pagesBody = @{ source = @{ branch = $Branch; path = "/" } }
@@ -154,3 +188,5 @@ $pagesUrl = "https://" + $Owner + ".github.io/" + $Repo + "/"
 
 # best-effort: drop sensitive value
 $token = $null
+$basic = $null
+$gitAuth = $null
