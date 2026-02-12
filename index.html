@@ -1,418 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
-    <title>HD Innovations | Photography & Memory Preservation</title>
-    <meta
-      name="description"
-      content="HD Innovations is a female-led photography and memory preservation brand. Newborn & family portraits, 3D casts, curated memory kits, and AI-enabled memory booths."
-    />
-    <meta name="theme-color" content="#f8fafc" />
-
-    <meta property="og:title" content="HD Innovations" />
-    <meta property="og:description" content="Photography & memory preservation - crafted and digitalized." />
-    <meta property="og:type" content="website" />
-
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>High Definition | Crafted and Digitalized Memories</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./styles.css" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "HD Innovations",
-        "url": "https://hdinnov.tech",
-        "email": "hudasphotographer@gmail.com",
-        "telephone": "+966500654100",
-        "description": "Female-led photography and memory preservation brand. Newborn & family portraits, curated memory kits, 3D casts, and AI-enabled memory booths."
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              hd: {
+                base: '#FFF8F3', // Light peach/cream background from PDF
+                primary: '#3E2723', // Dark brown text from PDF
+                accent: '#A1887F', // Softer brown for secondary elements
+                gold: '#D4AF37', // Luxury accent
+              }
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Montserrat"', 'sans-serif'],
+            }
+          }
+        }
       }
     </script>
-  </head>
-
-  <body class="bg-slate-50 text-slate-900 antialiased">
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="fixed top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur shadow-sm">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
-          <a class="flex items-center gap-3" href="./index.html" aria-label="HD Innovations home">
-            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-700">
-              <img class="h-5 w-5 filter invert brightness-0" src="./assets/mark.svg" alt="" />
-            </span>
-            <span class="font-semibold tracking-tight text-slate-900">HD Innovations</span>
-          </a>
-
-          <button
-            class="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 md:hidden"
-            type="button"
-            aria-expanded="false"
-            aria-controls="nav"
-            data-nav-toggle
-          >
-            <span class="sr-only">Open menu</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6">
-              <path
-                d="M4 6h16M4 12h16M4 18h16"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
-
-          <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
-            <a class="nav-link" href="./index.html">Home</a>
-            <a class="nav-link" href="./about.html">About</a>
-            <a class="nav-link" href="./services.html">Services</a>
-            <a class="nav-link" href="./booths.html">Memory Booths</a>
-            <a class="btn-primary" href="./contact.html">Book</a>
-          </nav>
-        </div>
-
-        <nav id="nav" class="mobile-nav hidden pb-3 md:hidden" aria-label="Mobile">
-          <a class="mobile-link" href="./index.html">Home</a>
-          <a class="mobile-link" href="./about.html">About</a>
-          <a class="mobile-link" href="./services.html">Services</a>
-          <a class="mobile-link" href="./booths.html">Memory Booths</a>
-          <a class="mobile-cta" href="./contact.html">Book</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main">
-      <section id="top" class="pt-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <p class="text-sm font-semibold tracking-wide text-emerald-700">High Definition by HD Innovations</p>
-              <h1 class="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-                Where memories become heirlooms.
-              </h1>
-              <p class="mt-4 text-base leading-7 text-slate-600">
-                Female-led photography and memory preservation for newborns, families, and milestones - crafted into curated kits
-                with portraits, prints, frames, and imprints.
-              </p>
-
-              <div class="mt-7 flex flex-wrap gap-3">
-                <a class="btn-primary" href="https://wa.me/966500654100" target="_blank" rel="noreferrer">Book on WhatsApp</a>
-                <a class="btn-secondary" href="./services.html">Explore services</a>
-              </div>
-
-              <dl class="mt-10 grid gap-4 sm:grid-cols-3">
-                <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                  <dt class="text-sm font-semibold text-slate-900">Fully digital</dt>
-                  <dd class="mt-1 text-sm text-slate-600">Online booking, payment, delivery</dd>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                  <dt class="text-sm font-semibold text-slate-900">Newborn-safe</dt>
-                  <dd class="mt-1 text-sm text-slate-600">Certified casting materials</dd>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                  <dt class="text-sm font-semibold text-slate-900">Gifting-ready</dt>
-                  <dd class="mt-1 text-sm text-slate-600">Protective packaging & delivery</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="grid gap-4 sm:grid-cols-2">
-              <figure class="hero-photo sm:col-span-2">
-                <img src="./assets/photos/framed-wall.jpg" alt="A premium wall of framed photographs in a modern interior." />
-              </figure>
-              <figure class="hero-photo">
-                <img
-                  src="./assets/photos/newborn-feet.jpg"
-                  alt="Close-up of newborn baby feet."
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-              <figure class="hero-photo">
-                <img
-                  src="./assets/photos/camera-tripod.jpg"
-                  alt="A professional camera on a tripod during a shoot."
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" class="py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="max-w-2xl">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900">Services that feel personal.</h2>
-            <p class="mt-3 text-slate-600">We blend emotion, artistry, and technology to preserve stories—beautifully and forever.</p>
-          </div>
-
-          <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <article class="service-card">
-              <div class="service-ico" aria-hidden="true">
-                <img src="./assets/icon-camera.svg" width="22" height="22" alt="" />
-              </div>
-              <h3 class="mt-4 font-semibold text-slate-900">Photography packages</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">Newborn and family portraits with refined digital artistry.</p>
-            </article>
-
-            <article class="service-card">
-              <div class="service-ico" aria-hidden="true">
-                <img src="./assets/icon-cast.svg" width="22" height="22" alt="" />
-              </div>
-              <h3 class="mt-4 font-semibold text-slate-900">3D hand & feet casts</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">Keepsakes created with safe, certified materials.</p>
-            </article>
-
-            <article class="service-card">
-              <div class="service-ico" aria-hidden="true">
-                <img src="./assets/icon-frame.svg" width="22" height="22" alt="" />
-              </div>
-              <h3 class="mt-4 font-semibold text-slate-900">Frames & prints</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">Albums, canvas, and custom framing—delivered protected.</p>
-            </article>
-
-            <article class="service-card">
-              <div class="service-ico" aria-hidden="true">
-                <img src="./assets/icon-booth.svg" width="22" height="22" alt="" />
-              </div>
-              <h3 class="mt-4 font-semibold text-slate-900">Memory booths</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">AI-enabled booths for effortless capture and imprints.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="process" class="border-y border-slate-200 bg-white py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="max-w-2xl">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900">A seamless process.</h2>
-            <p class="mt-3 text-slate-600">From booking to delivery—clear steps, premium quality, and a personal touch.</p>
-          </div>
-
-          <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div class="step-card">
-              <p class="step-num">01</p>
-              <h3 class="mt-2 font-semibold text-slate-900">Book</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">Choose a package and share your milestone.</p>
-            </div>
-            <div class="step-card">
-              <p class="step-num">02</p>
-              <h3 class="mt-2 font-semibold text-slate-900">Create</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">Studio session or memory booth—captured with care.</p>
-            </div>
-            <div class="step-card">
-              <p class="step-num">03</p>
-              <h3 class="mt-2 font-semibold text-slate-900">Curate</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">We craft and digitalize your kit—images to imprints.</p>
-            </div>
-            <div class="step-card">
-              <p class="step-num">04</p>
-              <h3 class="mt-2 font-semibold text-slate-900">Deliver</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">Local and international delivery with protection.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery" class="py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="max-w-2xl">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900">Gallery</h2>
-            <p class="mt-3 text-slate-600">A premium look for portraits, prints, and technology-enabled memory experiences.</p>
-          </div>
-
-          <div class="mt-10 grid gap-6 lg:grid-cols-12">
-            <figure class="gallery-tile lg:col-span-7">
-              <img
-                src="./assets/photos/framed-wall.jpg"
-                alt="A premium wall of framed photographs in a modern interior."
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>Heirloom-grade presentation for prints and frames.</figcaption>
-            </figure>
-            <figure class="gallery-tile lg:col-span-5">
-              <img
-                src="./assets/photos/kiosk.jpg"
-                alt="A modern standalone kiosk representing a self-service memory booth."
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>Memory booths designed for convenient locations.</figcaption>
-            </figure>
-            <figure class="gallery-tile lg:col-span-6">
-              <img src="./assets/photos/newborn-feet.jpg" alt="Close-up of newborn baby feet." loading="lazy" decoding="async" />
-              <figcaption>Newborn keepsakes designed for a lifetime.</figcaption>
-            </figure>
-            <figure class="gallery-tile lg:col-span-6">
-              <img
-                src="./assets/photos/camera-tripod.jpg"
-                alt="A professional camera on a tripod during a shoot."
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>Luxury sessions crafted with precision and care.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section id="booths" class="border-y border-slate-200 bg-white py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 class="text-3xl font-bold tracking-tight text-slate-900">AI-enabled memory booths.</h2>
-              <p class="mt-3 text-slate-600">
-                Quick, touch-free imprints and instant keepsakes—strategically placed to make preserving memories effortless.
-              </p>
-              <ul class="mt-6 space-y-3 text-sm text-slate-700">
-                <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-700"></span> Touch-free imprinting</li>
-                <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-700"></span> On-the-spot personalization</li>
-                <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-700"></span> Ideal for hospitals, malls, and family centers</li>
-              </ul>
-              <div class="mt-8">
-                <a class="btn-primary" href="#contact">Inquire about booths</a>
-              </div>
-            </div>
-
-            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-              <p class="text-sm font-semibold text-emerald-700">Gift-ready</p>
-              <h3 class="mt-2 text-xl font-semibold text-slate-900">Saudi-made keepsakes</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">
-                Perfect for gifting and travel—delivered locally and internationally with protective packaging.
-              </p>
-              <div class="mt-6 grid gap-3 sm:grid-cols-2">
-                <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                  <p class="text-sm font-semibold text-slate-900">Souvenirs</p>
-                  <p class="mt-1 text-sm text-slate-600">Saudi-made gifts for tourists</p>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                  <p class="text-sm font-semibold text-slate-900">Milestones</p>
-                  <p class="mt-1 text-sm text-slate-600">Newborns, families, couples</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <div>
-              <h2 class="text-3xl font-bold tracking-tight text-slate-900">Meet the CEO.</h2>
-              <p class="mt-3 text-slate-600">
-                Huda Sabir leads HD Innovations with a passion for creativity, storytelling, and innovation—turning moments into lasting legacies.
-              </p>
-              <p class="mt-4 text-sm leading-6 text-slate-600">
-                With a Bachelor’s degree in Photography (Hons) from the United Kingdom and international experience in building purpose-led brands, she shapes a future-forward approach to memory preservation.
-              </p>
-            </div>
-
-            <div class="rounded-3xl border border-slate-200 bg-white p-6">
-              <dl class="grid gap-6 sm:grid-cols-2">
-                <div>
-                  <dt class="text-sm font-semibold text-slate-900">Customer segments</dt>
-                  <dd class="mt-2 text-sm text-slate-600">New parents, families, couples, tourists, elderly loved ones.</dd>
-                </div>
-                <div>
-                  <dt class="text-sm font-semibold text-slate-900">Partners</dt>
-                  <dd class="mt-2 text-sm text-slate-600">Hospitals, malls, family centers, suppliers.</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="border-t border-slate-200 bg-white py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="max-w-2xl">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900">Contact</h2>
-            <p class="mt-3 text-slate-600">Book a session, ask about memory kits, or inquire about booth partnerships.</p>
-          </div>
-
-          <div class="mt-10 grid gap-6 lg:grid-cols-2">
-            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-              <h3 class="text-lg font-semibold text-slate-900">Reach us</h3>
-              <ul class="mt-4 space-y-4 text-sm">
-                <li>
-                  <p class="font-semibold text-slate-900">Email</p>
-                  <a class="font-semibold text-emerald-700" href="mailto:hudasphotographer@gmail.com">hudasphotographer@gmail.com</a>
-                </li>
-                <li>
-                  <p class="font-semibold text-slate-900">Phone / WhatsApp</p>
-                  <a class="font-semibold text-emerald-700" href="https://wa.me/966500654100" target="_blank" rel="noreferrer"
-                    >+966 50 065 4100</a
-                  >
-                </li>
-                <li>
-                  <p class="font-semibold text-slate-900">Online</p>
-                  <a class="font-semibold text-emerald-700" href="https://hdinnov.tech" target="_blank" rel="noreferrer">hdinnov.tech</a>
-                </li>
-              </ul>
-
-              <div class="mt-8 flex flex-wrap gap-3">
-                <a class="btn-primary" href="https://wa.me/966500654100" target="_blank" rel="noreferrer">Message on WhatsApp</a>
-                <a class="btn-secondary" href="mailto:hudasphotographer@gmail.com?subject=HD%20Innovations%20Inquiry">Email us</a>
-              </div>
-
-              <p class="mt-6 text-xs text-slate-600">
-                Tip: For bookings, share your preferred date, package, and whether you’d like portraits, casts, or both.
-              </p>
-            </div>
-
-            <form class="rounded-3xl border border-slate-200 bg-white p-6" data-mailto-form>
-              <h3 class="text-lg font-semibold text-slate-900">Quick inquiry</h3>
-              <div class="mt-4 grid gap-4">
-                <label class="grid gap-2">
-                  <span class="text-sm font-semibold text-slate-700">Name</span>
-                  <input class="input" name="name" autocomplete="name" required />
-                </label>
-                <label class="grid gap-2">
-                  <span class="text-sm font-semibold text-slate-700">Email</span>
-                  <input class="input" name="email" type="email" autocomplete="email" required />
-                </label>
-                <label class="grid gap-2">
-                  <span class="text-sm font-semibold text-slate-700">Message</span>
-                  <textarea class="input" name="message" rows="5" required></textarea>
-                </label>
-                <button class="btn-primary w-full justify-center" type="submit">Send inquiry</button>
-                <p class="text-xs text-slate-600">
-                  This opens your email client with a pre-filled message (no data is stored on a server).
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="border-t border-slate-200 bg-slate-50">
-      <div
-        class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
-      >
-        <div class="flex items-center gap-3">
-          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-700">
-            <img class="h-5 w-5 filter invert brightness-0" src="./assets/mark.svg" alt="" />
-          </span>
-          <div>
-            <p class="font-semibold text-slate-900">HD Innovations</p>
-            <p class="text-sm text-slate-600">Where memories become heirlooms.</p>
-          </div>
-        </div>
-        <p class="text-sm text-slate-600">© <span data-year></span> HD Innovations. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script src="./scripts.js"></script>
-  </body>
+    <style>
+      body {
+        background-color: #FFF8F3;
+        color: #3E2723;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>
